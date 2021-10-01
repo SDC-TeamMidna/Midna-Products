@@ -1,7 +1,7 @@
-const Router = require('express-promise-router');
+const controller = require('./controllers');
 
-const db = require('../db/index');
+const router = require('express').Router();
 
-const router = new Router();
+router.get('/products', controller.products.get);
 
 module.exports = router;
