@@ -4,11 +4,15 @@ const db = require('./db');
 const app = express();
 const PORT = 3000;
 
+const router = require('./routes');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use('/', router);
+
 // console.log(db);
-app.get('/', (req, res) => {
+app.get('/products', (req, res) => {
   console.log(req.query);
   db.getProducts((err, data) => {
     if (err) {

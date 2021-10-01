@@ -25,7 +25,5 @@ const pool = new Pool({
 
 module.exports = {
   // getProducts,
-  query: (text, params) => pool.query(text, params)
-    .then((results) => results.rows)
-    .catch((err) => err.stack),
+  query: (text, params) => pool.query(text, params),
 };
