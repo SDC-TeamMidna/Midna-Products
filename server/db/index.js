@@ -11,7 +11,7 @@ const pool = new Pool({
 
 const getProducts = (count, page, callback) => {
   const query = {
-    text: 'SELECT * FROM products';
+    text: 'SELECT * FROM products',
   }
 
   pool.query('SELECT * FROM products LIMIT 10;', (err, data) => {
