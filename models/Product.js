@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const db = require('../db');
 
+// Product constructor
 function Product({
   name,
   slogan,
@@ -15,6 +16,7 @@ function Product({
   this.default_price = default_price;
 }
 
+// create Product method
 // eslint-disable-next-line func-names
 Product.prototype.createProduct = async function () {
   // eslint-disable-next-line no-useless-catch
@@ -29,3 +31,5 @@ Product.prototype.createProduct = async function () {
     throw err;
   }
 };
+
+module.exports = Product;

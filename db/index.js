@@ -9,17 +9,13 @@ const pool = new Pool({
   idleTimeoutMillis: 0,
 });
 
-
 module.exports = {
-  // getProducts,
-  // query: (text, params, callback) => {
-  //   return pool.query(text, params, callback)
-  // },
   async query(text, params) {
+    // invocation timestamp for query method
     const start = Date.now();
     try {
       const res = await pool.query(text, params);
-
+      // time elapsed since invocation to execution
       const duration = Date.now() - start;
 
       console.log('executed query', { text, duration, rows: res.rowCount });
@@ -30,17 +26,3 @@ module.exports = {
     }
   },
 };
-
-// const getProducts = (count, page, callback) => {
-//   const query = {
-//     text: 'SELECT * FROM products';
-//   }
-
-//   pool.query('SELECT * FROM products LIMIT 10;', (err, data) => {
-//     if (err) {
-//       callback(err, null);
-//     } else {
-//       callback(null, data.rows);
-//     }
-//   });
-// };

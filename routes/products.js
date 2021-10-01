@@ -1,4 +1,9 @@
-const db = require('../db/index');
+const express = require('express');
+
+const router = express.Router();
+const productsController = require('../controllers.products');
+
+// router.post('/')
 
 app.get('/products', (req, res) => {
   // eslint-disable-next-line consistent-return
