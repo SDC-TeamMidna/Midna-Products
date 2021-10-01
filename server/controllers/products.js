@@ -1,6 +1,6 @@
 const Product = require('../models/Product');
 
-export.postProduct = async (req, res, next) => {
+export.getProducts = async (req, res, next) => {
   // getting user data from req body
   const { name, slogan, description, category, default_price } = req.body;
 
