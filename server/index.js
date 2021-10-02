@@ -11,5 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/products', router);
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Listening at localhost:${PORT}!`);
 });
