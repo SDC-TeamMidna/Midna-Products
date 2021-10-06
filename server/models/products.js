@@ -1,18 +1,14 @@
 const db = require('../db');
 
 module.exports = {
-  getAll: (params, callback) => {
+  getAll: (params) => {
     const text = `
       SELECT id, name, slogan, description, category, default_price
       FROM products LIMIT $1;
       `;
-    db.query(text, params)
-      .then((data) => {
-        callback(null, data.rows);
-      })
-      .catch((err) => callback(err, null));
+    return db.query(text, params);
   },
-  getOne: (params, callback) => {
+  getOne: (params) => {
     const text = `
     SELECT id, name, slogan, description, category, default_price,
       (SELECT JSON_AGG(JSON_BUILD_OBJECT(
@@ -22,8 +18,6 @@ module.exports = {
       WHERE products.id = features.product_id)
     FROM products
     WHERE id = $1;`;
-    db.query(text, params)
-      .then((data) => callback(null, data.rows))
-      .catch((err) => callback(err, null));
+    return db.query(text, params);
   },
 };

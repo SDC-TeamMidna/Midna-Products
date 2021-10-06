@@ -1,7 +1,7 @@
 const db = require('../db');
 
 module.exports = {
-  get: (params, callback) => {
+  get: (params) => {
     const text = `
     SELECT product_id, JSON_AGG(JSON_BUILD_OBJECT(
       'style_id', styles.id, 'name', name, 'sale_price', sale_price, 'original_price', original_price, 'default?', styles.default, 'photos',
@@ -18,8 +18,6 @@ module.exports = {
     WHERE styles.product_id = $1
     GROUP BY product_id;`;
 
-    db.query(text, params)
-      .then((data) => callback(null, data.rows))
-      .catch((err) => callback(err, null));
+    return db.query(text, params);
   },
 };

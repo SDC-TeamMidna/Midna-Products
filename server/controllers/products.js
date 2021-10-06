@@ -5,21 +5,18 @@ const models = require('../models');
 module.exports = {
   getAll: (req, res) => {
     const count = req.query.count || 5;
-    models.products.getAll([count], (err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      }
-      res.status(200).send(data);
-    });
+    models.products.getAll([count])
+      .then((data) => res.status(200).send(data.rows))
+      .catch((err) => res.status(500).send(err));
   },
 
   getOne: (req, res) => {
     const id = req.params.product_id;
-    models.products.getOne([id], (err, data) => {
-      if (err) {
-        res.status(404).send(err);
-      }
-      res.status(200).send(data);
-    });
+    models.products.getOne([id])
+      .then((data) => {
+        console.log(data.rows);
+        res.status(200).send(data.rows);
+      })
+      .catch((err) => res.status(500).send(err));
   },
 };
