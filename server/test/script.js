@@ -1,8 +1,8 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
 
-export default function () {
-  const domain = 'http://localhost:3001/products';
+export default () => {
+  const domain = 'http://localhost:3000/products';
 
   const id = Math.floor(Math.random() + 100000 + 900000);
 
@@ -22,4 +22,9 @@ export default function () {
   check(styles, {
     'Styles Status 200': (response) => response.status === 200,
   });
-}
+
+  const related = http.get(`${domain}/${id}/related`);
+  check(related, {
+    'Related Status 200': (response) => response.status === 200,
+  });
+};
