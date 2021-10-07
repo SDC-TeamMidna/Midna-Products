@@ -4,7 +4,8 @@
   "description": "SDC",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "start": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,11 @@
   },
   "homepage": "https://github.com/SDC-TeamMidna/Midna#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.1.0",
+    "newrelic": "^8.4.0",
+    "pg": "^8.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
