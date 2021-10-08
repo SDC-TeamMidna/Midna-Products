@@ -14,6 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/products', router);
 
+app.get('/loaderio-b6a2d64e9bcd1111ffd2d6e520a5ce13', (req, res) => {
+  res.send('loaderio-b6a2d64e9bcd1111ffd2d6e520a5ce13');
+});
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Listening at localhost:${PORT}!`);
