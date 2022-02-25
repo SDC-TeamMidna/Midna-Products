@@ -12,7 +12,7 @@ The backend database for this API is PostgreSQL. As a relational database manage
 
 ## PostgreSQL Schema
 
-![postgresqlSchema](/demo/schema.png)
+![postgresqlSchema](/schema.png)
 
 ## API Setup
 
@@ -36,7 +36,7 @@ With one server in place:
 
 - Error rate: 0.0%
 
-![loaderioResult](/demo/LoaderioResult.png)
+![loaderioResult](/LoaderioResult.png)
 
 ## Load Balancing
 
