@@ -1,6 +1,6 @@
 # Atelier Products API
 
-This is a RESTful JSON API for e-commerce related products related data.
+This is a RESTful JSON API for e-commerce application utilizing clothing related data.
 
 ## Purpose
 
